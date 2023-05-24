@@ -1,0 +1,29 @@
+{
+  "name": "bff-category",
+  "version": "1.0.0",
+  "description": "bff-category",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec serverless offline",
+    "deploy": "yarn serverless deploy --verbose"
+  },
+  "author": "michael.cardozo",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.11",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nock": "^13.3.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.3",
+    "serverless": "^3.0.0",
+    "serverless-dynamodb-local": "^0.2.40",
+    "serverless-esbuild": "^1.23.3",
+    "serverless-offline": "^12.0.4",
+    "serverless-offline-watcher": "^1.0.0"
+  }
+}

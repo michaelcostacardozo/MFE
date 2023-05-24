@@ -1,0 +1,20 @@
+service: bff-category
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: us-east-1
+
+functions:
+  bffCategory:
+    handler: handler.handler
+    events:
+      - http:
+          path: categories
+          method: get
+
+plugins:
+  - serverless-offline
+custom:
+  serverless-offline:
+    httpPort: 3006
