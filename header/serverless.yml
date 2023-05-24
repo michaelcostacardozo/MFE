@@ -1,0 +1,41 @@
+service: header-mfe
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-1
+  stage: dev
+  # apiGateway:
+  #   shouldStartNameWithService: true
+  #   restApiId: xxxxxxxx
+  #   restApiRootResourceId: xxxxxxxx
+  #   binaryMediaTypes:
+  #     - "*/*"
+
+functions:
+  api:
+    handler: server.handler
+    events:
+      - http: ANY /header
+      - http: ANY /header/{proxy+}
+
+plugins:
+  - serverless-esbuild
+
+package:
+  patterns:
+    - ".next"
+    - "node_modules"
+    - "public"
+    - "_next"
+    - "next.config.js"
+    - "next-i18next.config.js"
+    - "package.json"
+
+custom:
+  esbuild:
+    bundle: true
+    minify: true
+    exclude: "*"
+    external:
+      - "next"
